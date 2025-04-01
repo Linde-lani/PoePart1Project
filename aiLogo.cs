@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using System;
+using System.Drawing;
 
 namespace PoePart1
 {
@@ -7,47 +8,42 @@ namespace PoePart1
     {
         public aiLogo()
         {
-            //This retieves the location where the app is running
-            string projectLocation = AppDomain.CurrentDomain.BaseDirectory;
 
-            //Displays the project location
-            Console.WriteLine(projectLocation);
+            //get full location of the project
+            string fullLocation = AppDomain.CurrentDomain.BaseDirectory;
 
-            //The code will be updated the "bin\\Debug\\" into an empty string
-            string updatedPath = projectLocation.Replace("bin\\Debug\\", "");
+            //Replacing the bin\\Debug path
+            string newLocation = fullLocation.Replace("bin\\Debug", "");
 
-            //The path to the txt file is constructed
-            //The complete path string is stored in the full_path string
-            string fullPath = Path.Combine(updatedPath, "AiLogo.txt");
+            //Then combine the path
+            string fullPath = Path.Combine(newLocation, "logo.jpg");
 
-            //This method is called to show the logo
-            showLogo(fullPath);
+            //Using the ascii art
 
+            //Creating the Bitmap class
+            Bitmap image = new Bitmap(fullPath);
 
-            
-        }
+            //then set the size
+            image = new Bitmap(image, new Size(150, 220));
 
-        private void showLogo(string full_path)
-        {
-            try
+            //outer and inner loop
+            for (int height = 0; height < image.Height; height++)
             {
-                // Read all lines from the text file
-                string[] asciiArtLines = File.ReadAllLines(full_path);
 
-                // Print each line to the console
-                foreach (string line in asciiArtLines)
+                for (int width = 0; width < image.Width; width++)
                 {
-                    Console.WriteLine(line);
-                }
-            }
-            catch (FileNotFoundException)
-            {
-                Console.WriteLine("Error: ASCII art file not found.");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"An error occurred: {ex.Message}");
-            }
-        }
 
-}   }
+                    Color pixelColor = image.GetPixel(height, width);
+                    int gray = (pixelColor.R + pixelColor.G + pixelColor.B) / 3;
+                    char asciiChar = gray > 200 ? '.' : gray > 150 ? '*' : gray > 100 ? 'o' : gray > 50 ? '#' : '@';
+                    Console.WriteLine(asciiChar);
+
+                }//End of inner loop
+                Console.WriteLine();
+
+            }//End of outer loop
+        }//End of constructor
+
+    }//End of class
+
+}//End of namespace
