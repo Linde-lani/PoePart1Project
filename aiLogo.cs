@@ -16,7 +16,7 @@ namespace PoePart1
             string newLocation = fullLocation.Replace("bin\\Debug", "");
 
             //Then combine the path
-            string fullPath = Path.Combine(newLocation, "logo.jpg");
+            string fullPath = Path.Combine(newLocation, "ailogo.png");
 
             //Using the ascii art
 
@@ -24,7 +24,7 @@ namespace PoePart1
             Bitmap image = new Bitmap(fullPath);
 
             //then set the size
-            image = new Bitmap(image, new Size(150, 220));
+            image = new Bitmap(image, new Size(210, 200));
 
             //outer and inner loop
             for (int height = 0; height < image.Height; height++)
@@ -33,12 +33,15 @@ namespace PoePart1
                 for (int width = 0; width < image.Width; width++)
                 {
 
-                    Color pixelColor = image.GetPixel(height, width);
+                    Color pixelColor = image.GetPixel(width, height);
                     int gray = (pixelColor.R + pixelColor.G + pixelColor.B) / 3;
+
+                    //This me making use of char
                     char asciiChar = gray > 200 ? '.' : gray > 150 ? '*' : gray > 100 ? 'o' : gray > 50 ? '#' : '@';
-                    Console.WriteLine(asciiChar);
+                    Console.Write(asciiChar);
 
                 }//End of inner loop
+                //This is to skip the line
                 Console.WriteLine();
 
             }//End of outer loop
