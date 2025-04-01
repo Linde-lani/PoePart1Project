@@ -34,7 +34,7 @@ namespace PoePart1
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.Write("Chatbot:-> ");
             Console.ForegroundColor = ConsoleColor.Gray;
-            Console.WriteLine("Hello "+ userName +", can I assist you today");
+            Console.WriteLine("Hello "+ userName +", how can I assist you today?");
 
             do
             {
@@ -72,14 +72,25 @@ namespace PoePart1
                 question.Add("Chatbot:-> Use strong passwords and two-factor authentication");
                 question.Add("Chatbot:-> Keep your software and security tools up to date");
                 question.Add("Chatbot:-> Never click on suspicious links or download attachments");
-                question.Add("Chatbot:-> You can ask me me about  related questions");
+                question.Add("Chatbot:-> You can ask me me about cyber-security related questions");
                 question.Add("Chatbot:-> My purpose is to inform you about cyber-security awareness");
-
+                question.Add("Chatbot:-> You can ask me about how to browse safely");
+                question.Add("Chatbot:-> Protect your accounts from phishing by using multi-factor authentication");
+                question.Add("Chatbot:-> Phishing attacks almost always have some type of grammar error,so be on the lookout for that");
+                question.Add("Chatbot:-> Watch out for 'Allow Notifications' pop-ups when browsing");
+                question.Add("Chatbot:-> Avoid browsing websites that spam you with ads");
+                question.Add("Chatbot:-> Installing antivirus software and keeping it updated helps with miniizing cyber-attacks ");
+                question.Add("Chatbot:-> Use unique and different passwords for every login");
+                question.Add("Chatbot:-> It's best to use a VPN when browsing so hackers may not track you");
+                question.Add("Chatbot:-> Use different email addresses for different kinds of accounts");
+                
 
                 //These words will be ignored,they're not needed
                 ignore.Add("tell");
                 ignore.Add("what");
+                ignore.Add("who");
                 ignore.Add("are");
+                ignore.Add("you");
                 ignore.Add("is");
                 ignore.Add("me");
                 ignore.Add("about");

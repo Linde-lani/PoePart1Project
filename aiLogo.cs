@@ -24,7 +24,7 @@ namespace PoePart1
             Bitmap image = new Bitmap(fullPath);
 
             //then set the size
-            image = new Bitmap(image, new Size(210, 200));
+            image = new Bitmap(image, new Size(100, 50));
 
             //outer and inner loop
             for (int height = 0; height < image.Height; height++)

@@ -11,7 +11,7 @@ namespace PoePart1
         static void Main(string[] args)
         {
             //Decleration of instance playAudio
-            new playAudio() { };
+            //new playAudio() { };
             //Decleration of instance aiLogo
             new aiLogo() { };
             //Decleration of instance userInterface
