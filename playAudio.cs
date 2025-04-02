@@ -21,15 +21,18 @@
             //The complete path string is stored in this string
             string fullPath = Path.Combine(updatedPath, "Greeting.wav");
 
-            //This method is called to play the audio
+            //The method is called to play the audio
             playWav(fullPath);
         }
 
         // method to play audio
         private void playWav(string fullPath)
         {
+            //Checks if the audio is in the fullpath location
             try
             {
+                //To play the sound that is in the fullPath location
+                //Soundplayer controls playback of sound
                 using (SoundPlayer player = new SoundPlayer(fullPath))
                 {
                     //The method will wait until the playback is complete before going forward
@@ -39,6 +42,7 @@
             }
             catch (Exception error)
             {
+                //Outputs error message
                 Console.WriteLine(error.Message);
 
             }

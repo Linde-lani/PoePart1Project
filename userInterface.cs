@@ -10,25 +10,29 @@ namespace PoePart1
         private string userQuestion = string.Empty;
 
         //Constructor
+        //What the user will see
         public userInterface()
         {
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("////////////////////////");
 
-            Console.ForegroundColor= ConsoleColor.Red;
+            Console.ForegroundColor= ConsoleColor.Red; 
             Console.WriteLine("Welcome to the AI ");
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("////////////////////////");
 
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.Write("Chatbot:-> ");
+            //Prompt user for their name
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.WriteLine("Please enter your name.");
+
 
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.Write("You:-> ");
             Console.ResetColor();
-
+            
+            //The name will be read and stored in this string
             userName = Console.ReadLine();
 
             Console.ForegroundColor = ConsoleColor.Gray;
@@ -36,6 +40,7 @@ namespace PoePart1
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.WriteLine("Hello "+ userName +", how can I assist you today?");
 
+            //This do while loop outputs the user's name after every response and allows the user to ask another question 
             do
             {
                 
@@ -46,7 +51,8 @@ namespace PoePart1
                 userQuestion = Console.ReadLine();
 
                 response(userQuestion);
-            } while (userQuestion != "exit");
+            } 
+            while (userQuestion != "exit");
             
 
 
@@ -68,15 +74,15 @@ namespace PoePart1
 
 
                 //These are the stored responses
-                question.Add("Chatbot:-> Be vigilant and suspicious");
                 question.Add("Chatbot:-> Use strong passwords and two-factor authentication");
-                question.Add("Chatbot:-> Keep your software and security tools up to date");
+                question.Add("Chatbot:-> Always keep your software and security tools up to date");
                 question.Add("Chatbot:-> Never click on suspicious links or download attachments");
                 question.Add("Chatbot:-> You can ask me me about cyber-security related questions");
                 question.Add("Chatbot:-> My purpose is to inform you about cyber-security awareness");
                 question.Add("Chatbot:-> You can ask me about how to browse safely");
-                question.Add("Chatbot:-> Protect your accounts from phishing by using multi-factor authentication");
-                question.Add("Chatbot:-> Phishing attacks almost always have some type of grammar error,so be on the lookout for that");
+                question.Add("Chatbot:-> You can protect your accounts from phishing by using multi-factor authentication" +
+                    ", also phishing attacks almost always have some type of grammar error,so be on the lookout for that");
+                
                 question.Add("Chatbot:-> Watch out for 'Allow Notifications' pop-ups when browsing");
                 question.Add("Chatbot:-> Avoid browsing websites that spam you with ads");
                 question.Add("Chatbot:-> Installing antivirus software and keeping it updated helps with miniizing cyber-attacks ");
@@ -127,6 +133,7 @@ namespace PoePart1
                     }
 
                 }
+
                 Boolean found_final = false;
                 string message = "";
                 //then check if it is found
@@ -162,6 +169,7 @@ namespace PoePart1
 
                 else
                 {
+                    //This will be displayed if no relevant words about cyber-security are found
                     Console.WriteLine("Please search something related to cyber-security");
                 }
 
@@ -173,9 +181,11 @@ namespace PoePart1
                 //The displayed message when the user exits
                 Console.WriteLine("Thank you for using the ChatbotAI, Goodbye");
                 System.Environment.Exit(0);
+
             }//End of else
+
         }//End of response method
+
     }//End of class
     
-
 }//End of namespace
