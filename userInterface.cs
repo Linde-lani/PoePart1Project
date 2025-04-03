@@ -16,8 +16,8 @@ namespace PoePart1
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("////////////////////////");
 
-            Console.ForegroundColor= ConsoleColor.Red; 
-            Console.WriteLine("Welcome to the AI ");
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Welcome to the ChatbotAI");
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("////////////////////////");
 
@@ -31,32 +31,42 @@ namespace PoePart1
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.Write("You:-> ");
             Console.ResetColor();
-            
+
             //The name will be read and stored in this string
             userName = Console.ReadLine();
 
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.Write("Chatbot:-> ");
             Console.ForegroundColor = ConsoleColor.Gray;
-            Console.WriteLine("Hello "+ userName +", how can I assist you today?");
+            Console.WriteLine("Hello " + userName + ", how can I assist you today?");
 
             //This do while loop outputs the user's name after every response and allows the user to ask another question 
             do
             {
-                
+
 
                 Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.Write(userName +":-> ");
+                Console.Write(userName + ":-> ");
                 Console.ResetColor();
                 userQuestion = Console.ReadLine();
 
-                response(userQuestion);
-            } 
+                // Check for empty input
+                if (string.IsNullOrWhiteSpace(userQuestion))
+                {
+                    Console.WriteLine("Chatbot:-> Please enter a question. The field cannot be empty.");
+                }
+                else
+                {
+                    response(userQuestion);
+
+                }
+            }
             while (userQuestion != "exit");
-            
 
 
-        }//End of constructor
+
+            }
+            //End of constructor
         
 
         //Response method
@@ -100,6 +110,7 @@ namespace PoePart1
                 ignore.Add("is");
                 ignore.Add("me");
                 ignore.Add("about");
+                ignore.Add("the");
 
 
 
@@ -170,7 +181,7 @@ namespace PoePart1
                 else
                 {
                     //This will be displayed if no relevant words about cyber-security are found
-                    Console.WriteLine("Please search something related to cyber-security");
+                    Console.WriteLine("Chatbot:-> Please search something related to cyber-security");
                 }
 
 
@@ -179,7 +190,7 @@ namespace PoePart1
             else
             {
                 //The displayed message when the user exits
-                Console.WriteLine("Thank you for using the ChatbotAI, Goodbye");
+                Console.WriteLine("Chatbot:-> Thank you for using the ChatbotAI, Goodbye");
                 System.Environment.Exit(0);
 
             }//End of else

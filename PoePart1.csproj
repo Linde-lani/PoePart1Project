@@ -47,7 +47,7 @@
     <Compile Include="aiLogo.cs" />
     <Compile Include="userInterface.cs" />
     <Compile Include="playAudio.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Run.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

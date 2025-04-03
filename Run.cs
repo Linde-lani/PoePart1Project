@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PoePart1
 {
-    public class Program
+    public class Run
     {
         static void Main(string[] args)
         {
